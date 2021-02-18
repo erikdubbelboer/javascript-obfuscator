@@ -46,7 +46,7 @@ export function DomainLockTemplate (): string {
             for (let d1 in that[document]) {
                 if (isName(d1, 6, [5, 110, 0, 100])) {
                     domain = d1;
-                    
+
                     break;
                 }
             }
