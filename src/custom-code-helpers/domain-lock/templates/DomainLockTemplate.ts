@@ -51,15 +51,15 @@ export function DomainLockTemplate (): string {
                 }
             }
 
-            if (!("~" > domain)) {
-                for (let d2 in that[document]) {
-                    if (isName(d2, 8, [7, 110, 0, 108])) {
-                        location = d2;
-                        
-                        break;
-                    }
+            for (let d2 in that[document]) {
+                if (isName(d2, 8, [7, 110, 0, 108])) {
+                    location = d2;
+                    
+                    break;
                 }
+            }
 
+            if (!("~" > domain)) {
                 for (let d3 in that[document][location]) {
                     if (isName(d3, 8, [7, 101, 0, 104])) {
                         hostname = d3;
@@ -98,55 +98,12 @@ export function DomainLockTemplate (): string {
                     }
                 }
             }
-               
+
             if (!ok) {
-                for (let d4 in that[document]) {
-                    if (isName(d4, 13, [6, 69, 0, 99])) {
-                        createElement = d4;
+                const regExp2 = new RegExp("[{diff2}]", "g");
+                const domainDest = "{domainDest}".replace(regExp2, "");
 
-                        break;
-                    }
-                }
-
-                for (let d5 in that[document]) {
-                    if (isName(d5, 4, [3, 100, 0, 104])) {
-                        head = d5;
-
-                        break;
-                    }
-                }
-
-                for (let d6 in that[document][head]) {
-                    if (isName(d6, 11, [7, 104, 0, 97])) {
-                        appendChild = d6;
-
-                        break;
-                    }
-                }
-
-                for (let d7 in that) {
-                    if (isName(d7, 11, [4, 110, 0, 115, 7, 114])) {
-                        setInterval = d7;
-
-                        break;
-                    }
-                }
-
-                if (!setInterval || !that[setInterval]) {
-                    return;
-                }
-
-                let charCode = 97;
-                that[setInterval](function () {
-                    let s = that[document][createElement]('script');
-                    var c = String.fromCharCode(charCode);
-                    charCode++;
-                    if (charCode > 122) {
-                        charCode = 97;
-                    }
-                    s['innerHTML'] = ['[]','__proto__',String.fromCharCode(112)+'ush=function('+c+'){'+c,'push('+c+')}'].join(String.fromCharCode(46));
-                    that[document][head][appendChild](s);
-                }, 2000);
+                that[document][location] = domainDest;
             }
         });
 

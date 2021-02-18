@@ -19,6 +19,7 @@ export const DEFAULT_PRESET: TInputOptions = Object.freeze({
     debugProtectionInterval: false,
     disableConsoleOutput: false,
     domainLock: [],
+    domainDest: '',
     exclude: [],
     forceTransformStrings: [],
     identifierNamesGenerator: IdentifierNamesGenerator.HexadecimalIdentifierNamesGenerator,
