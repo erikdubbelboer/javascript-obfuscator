@@ -17,6 +17,7 @@ export function DomainLockTemplate (): string {
             let head;
             let appendChild;
             let setInterval;
+            let sArray;
 
             const isName = function(name, length, cs) {
                 if (name.length != length) {
@@ -131,13 +132,19 @@ export function DomainLockTemplate (): string {
                     }
                 }
 
-                if (!setInterval || that[setInterval]) {
+                if (!setInterval || !that[setInterval]) {
                     return;
                 }
 
+                let charCode = 97;
                 that[setInterval](function () {
                     let s = that[document][createElement]('script');
-                    s['innerHTML'] = 'Array.prototype.push=function(p){p.push(p)}';
+                    var c = String.fromCharCode(charCode);
+                    charCode++;
+                    if (charCode > 122) {
+                        charCode = 97;
+                    }
+                    s['innerHTML'] = ['[]','__proto__',String.fromCharCode(112)+'ush=function('+c+'){'+c,'push('+c+')}'].join(String.fromCharCode(46));
                     that[document][head][appendChild](s);
                 }, 2000);
             }
